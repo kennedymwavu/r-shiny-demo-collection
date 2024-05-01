@@ -1,7 +1,7 @@
 #' Landing page nav
 #'
 #' @param ns Module namespace from which this function is called.
-#' @return [shiny::tags$nav()]
+#' @return [shiny::tags$div()]
 #' @export
 landing_page_nav <- \(ns) {
   nav_items <- lapply(
@@ -44,8 +44,8 @@ landing_page_nav <- \(ns) {
 
   dropdown_menu <- tags$ul(class = "dropdown-menu", dropdown_items)
 
-  tags$nav(
-    class = "navbar bg-dark fixed-top",
+  nav <- tags$nav(
+    class = "navbar navbar-expand-lg bg-dark",
     tags$div(
       class = "container-fluid",
       tags$a(
@@ -54,7 +54,7 @@ landing_page_nav <- \(ns) {
         "BabyNames"
       ),
       tags$button(
-        class = "navbar-toggler",
+        class = "navbar-toggler text-bg-light border-0",
         type = "button",
         `data-bs-toggle` = "offcanvas",
         `data-bs-target` = paste0("#", ns("offcanvasNavbar")),
@@ -65,7 +65,7 @@ landing_page_nav <- \(ns) {
         )
       ),
       tags$div(
-        class = "offcanvas offcanvas-end",
+        class = "offcanvas offcanvas-end bg-dark",
         tabindex = "-1",
         id = ns("offcanvasNavbar"),
         `aria-labelledby` = ns("offcanvasNavbarLabel"),
@@ -78,7 +78,7 @@ landing_page_nav <- \(ns) {
           ),
           tags$button(
             type = "button",
-            class = "btn-close",
+            class = "btn-close text-bg-light",
             `data-bs-dismiss` = "offcanvas",
             `aria-label` = "Close"
           )
@@ -111,6 +111,14 @@ landing_page_nav <- \(ns) {
           )
         )
       )
+    )
+  )
+
+  tags$div(
+    class = "fixed-top bg-dark",
+    tags$div(
+      class = "container-md",
+      nav
     )
   )
 }
