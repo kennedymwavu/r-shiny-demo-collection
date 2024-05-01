@@ -2,7 +2,8 @@ box::use(
   htmltools[tags, tagList],
   shiny[NS],
   . / nav[nav],
-  . / hero[hero]
+  . / hero[hero],
+  . / about[about]
 )
 
 #' Landing page UI module
@@ -15,6 +16,7 @@ ui <- \(id) {
 
   tagList(
     nav(ns = ns),
-    hero(ns = ns)
+    hero(ns = ns),
+    about
   )
 }

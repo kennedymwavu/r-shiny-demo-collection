@@ -1,0 +1,53 @@
+box::use(
+  htmltools[tags, tagList]
+)
+
+#' Create About section
+#'
+#' @param image List or character vector. Names of images to include.
+#' The images are assumed to be in the 'www/img/' dir.
+#' @param description List or character vector of same length as `image`.
+#' Descriptions to use under those images.
+#' @export
+create_about <- \(image = NULL, description = NULL) {
+  tags$div(
+    class = "container",
+    tags$h3(
+      class = "fw-bold text-center my-5",
+      "Take a Sneak Peek..."
+    ),
+    tags$div(
+      class = "row",
+      Map(
+        f = \(img, desc) {
+          tags$div(
+            class = "col-3 d-flex flex-column gap-2",
+            tags$img(
+              src = file.path("img", img),
+              class = "rounded-1 about-img"
+            ),
+            tags$p(
+              class = "opacity-75",
+              desc
+            )
+          )
+        },
+        image,
+        description
+      )
+    )
+  )
+}
+
+#' About section (below hero)
+#'
+#' @export
+about <- create_about(
+  image = paste0("baby-", 1:4, ".jpg"),
+  description = list(
+    "With her bright eyes and a tuft of curly brown hair, Olivia is a bundle of joy. Always sporting a contagious smile, she's the epitome of happiness. Olivia loves cuddles and giggles, and her gentle demeanor makes everyone around her feel at ease. She's curious about the world, often reaching out to touch and explore everything within her grasp.",
+    "Meet Ethan, a little explorer with an insatiable curiosity. With his twinkling blue eyes and a sprinkle of freckles across his nose, he's always ready for his next adventure. Whether he's crawling around the room or babbling away, Ethan's energy is infectious. He loves discovering new toys and babbling in his own baby language, captivating everyone with his adorable antics.",
+    "Ava is a little princess with a heart-melting smile. With her silky blonde locks and big, expressive eyes, she charms everyone she meets. She's a natural entertainer, often giggling and cooing to captivate her audience. Ava loves to be held and rocked gently, relishing in the warmth of cuddles and affection. She's a gentle soul with a radiant presence that brightens up any room.",
+    "Noah is a little bundle of mischief wrapped in chubby cheeks and dimples. With his tousled brown hair and twinkling eyes, he's always up to something mischievous. Whether he's babbling away or reaching for his favorite toys, Noah's playful energy is contagious. He loves to explore and experiment, often surprising everyone with his clever antics. Noah is a little firecracker, keeping everyone on their toes with his boundless enthusiasm."
+  )
+)

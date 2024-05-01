@@ -3,3 +3,8 @@
   max-width: 700px;
   max-height: 300px;
 }
+
+.about-img {
+  height: 200px;
+  object-fit: cover;
+}
