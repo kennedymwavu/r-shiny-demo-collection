@@ -3,7 +3,8 @@ box::use(
   shiny[NS],
   . / nav[nav],
   . / hero[hero],
-  . / about[about]
+  . / about[about],
+  . / testimonies[testimonies]
 )
 
 #' Landing page UI module
@@ -17,6 +18,7 @@ ui <- \(id) {
   tagList(
     nav(ns = ns),
     hero(ns = ns),
-    about
+    about,
+    testimonies
   )
 }
