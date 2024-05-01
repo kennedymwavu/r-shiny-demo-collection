@@ -1,9 +1,14 @@
+box::use(
+  htmltools[tags, tagList],
+  shiny[actionLink, actionButton]
+)
+
 #' Landing page nav
 #'
 #' @param ns Module namespace from which this function is called.
 #' @return [shiny::tags$div()]
 #' @export
-landing_page_nav <- \(ns) {
+nav <- \(ns) {
   nav_items <- lapply(
     X = c("Home", "About", "Features"),
     FUN = \(nav_item) {
@@ -49,7 +54,7 @@ landing_page_nav <- \(ns) {
     tags$div(
       class = "container-fluid",
       tags$a(
-        class = "navbar-brand text-white",
+        class = "navbar-brand text-white fw-bold",
         href = "#",
         "BabyNames"
       ),
@@ -105,7 +110,7 @@ landing_page_nav <- \(ns) {
               actionButton(
                 inputId = ns("login"),
                 label = "Login",
-                class = "btn-sm btn-primary px-4"
+                class = "btn-sm btn-primary rounded-1 px-4"
               )
             )
           )
