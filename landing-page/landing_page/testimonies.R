@@ -8,7 +8,7 @@ box::use(
 testimonies <- tags$div(
   class = "bg-light my-5 py-5",
   tags$div(
-    class = "container d-flex justify-content-center py-5",
+    class = "container d-flex justify-content-center my-5 py-5",
     tags$div(
       tags$p(
         class = "fst-italic fs-3 fw-light",

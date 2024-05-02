@@ -4,7 +4,8 @@ box::use(
   . / nav[nav],
   . / hero[hero],
   . / about[about],
-  . / testimonies[testimonies]
+  . / testimonies[testimonies],
+  . / call_to_action[call_to_action]
 )
 
 #' Landing page UI module
@@ -19,6 +20,7 @@ ui <- \(id) {
     nav(ns = ns),
     hero(ns = ns),
     about,
-    testimonies
+    testimonies,
+    call_to_action(ns = ns)
   )
 }

@@ -11,7 +11,7 @@ hero <- \(ns) {
   tags$div(
     class = "bg-dark my-5 py-5",
     tags$div(
-      class = "container d-flex justify-content-around flex-wrap flex-md-nowrap gap-5 py-5",
+      class = "container d-flex justify-content-around flex-wrap flex-md-nowrap gap-5 my-5 py-5",
       tags$div(
         class = "w-50",
         tags$h2(
