@@ -21,7 +21,7 @@ create_about <- \(image = NULL, description = NULL) {
       Map(
         f = \(img, desc) {
           tags$div(
-            class = "col-3 d-flex flex-column gap-2",
+            class = "col-12 col-md-3 d-flex flex-column gap-2",
             tags$img(
               src = file.path("img", img),
               class = "rounded-1 about-img"

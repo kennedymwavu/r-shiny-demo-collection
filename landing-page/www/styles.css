@@ -208,8 +208,8 @@ a.active {
 
 .hero-img {
   width: 100%;
-  max-width: 700px;
-  max-height: 300px;
+  height: 250px;
+  object-fit: cover;
 }
 
 .about-img {
