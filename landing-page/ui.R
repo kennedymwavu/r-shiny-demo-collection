@@ -13,5 +13,8 @@ ui <- bslib::page(
     rel = "stylesheet",
     href = "styles.css"
   ),
-  mod_landing_page_ui(id = "landing_page")
+  tags$body(
+    class = "spectral-regular",
+    mod_landing_page_ui(id = "landing_page")
+  )
 )

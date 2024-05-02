@@ -56,7 +56,7 @@ nav <- \(ns) {
       tags$a(
         class = "navbar-brand text-white fw-bold",
         href = "#",
-        "BabyNames"
+        "BABYNAMES"
       ),
       tags$button(
         class = "navbar-toggler text-bg-light border-0",
