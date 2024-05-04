@@ -9,28 +9,29 @@ box::use(
 #' @export
 call_to_action <- \(ns) {
   tags$div(
-    class = "py-1",
+    class = "row mx-1 py-1",
     tags$div(
-      class = "container my-5",
+      class = "col-12 my-5",
       tags$div(
-        class = "row bg-primary rounded-1 py-5",
+        class = "container",
         tags$div(
-          class = "col-12 col-md-6 d-flex flex-column justify-content-center align-items-center",
+          class = "row row-gap-2 bg-primary rounded-1 py-4 px-2 py-md-5 px-md-5",
           tags$div(
+            class = "col-12 col-md-6",
             tags$h6(
               class = "fw-bold",
               "Discover the Perfect Name for Your Little Miracle!"
             ),
             tags$p("Start Exploring Now and Find the Name that Fits Your Bundle of Joy!")
-          )
-        ),
-        tags$div(
-          class = "col-12 col-md-6 d-flex flex-column justify-content-around align-items-md-center",
+          ),
           tags$div(
-            actionButton(
-              inputId = ns("sign_up_2"),
-              label = tags$span(class = "fw-bold", "Sign up"),
-              class = "btn-primary btn-sm rounded-1 border-white px-4"
+            class = "col-12 col-md-6 d-flex justify-content-md-end",
+            tags$div(
+              actionButton(
+                inputId = ns("sign_up_2"),
+                label = "Sign up",
+                class = "btn-primary btn-sm rounded-1 border-white px-4 fw-bold"
+              )
             )
           )
         )

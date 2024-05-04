@@ -10,32 +10,34 @@ box::use(
 #' Descriptions to use under those images.
 #' @export
 create_about <- \(image = NULL, description = NULL) {
+  babies <- tags$div(
+    class = "row row-gap-2 column-gap-2 mx-1",
+    Map(
+      f = \(img, desc) {
+        tags$div(
+          class = "col-12 col-md-3 d-flex flex-column flex-fill gap-2 py-3 about",
+          tags$img(
+            src = file.path("img", img),
+            class = "rounded-1 about-img"
+          ),
+          tags$p(
+            class = "opacity-75",
+            desc
+          )
+        )
+      },
+      image,
+      description
+    )
+  )
+
   tags$div(
     class = "container",
     tags$h3(
       class = "fw-bold text-center my-5",
       "Take a Sneak Peek..."
     ),
-    tags$div(
-      class = "row",
-      Map(
-        f = \(img, desc) {
-          tags$div(
-            class = "col-12 col-md-3 d-flex flex-column gap-2",
-            tags$img(
-              src = file.path("img", img),
-              class = "rounded-1 about-img"
-            ),
-            tags$p(
-              class = "opacity-75",
-              desc
-            )
-          )
-        },
-        image,
-        description
-      )
-    )
+    babies
   )
 }
 

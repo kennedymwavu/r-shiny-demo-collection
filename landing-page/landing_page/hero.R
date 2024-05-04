@@ -11,9 +11,9 @@ hero <- \(ns) {
   tags$div(
     class = "bg-dark my-5 py-5",
     tags$div(
-      class = "container my-5 py-5",
+      class = "container my-3 my-md-5 py-md-5",
       tags$div(
-        class = "row",
+        class = "row row-gap-3 flex-column-reverse flex-md-row",
         tags$div(
           class = "col-12 col-md-6",
           tags$h2(
@@ -28,11 +28,8 @@ hero <- \(ns) {
           ),
           actionButton(
             inputId = ns("sign_up"),
-            label = tags$span(
-              class = "fw-bold",
-              "Sign Up"
-            ),
-            class = "btn-primary rounded-1 px-4"
+            label = "Sign Up",
+            class = "btn-primary rounded-1 px-4 fw-bold"
           )
         ),
         tags$div(
