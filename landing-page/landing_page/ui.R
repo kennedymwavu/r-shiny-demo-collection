@@ -5,6 +5,7 @@ box::use(
   . / hero[hero],
   . / about[about],
   . / testimonies[testimonies],
+  . / merchandise[merchandise],
   . / call_to_action[call_to_action]
 )
 
@@ -27,6 +28,7 @@ ui <- \(id) {
       hero(ns = ns),
       about(ns = ns),
       testimonies(ns = ns),
+      merchandise(ns = ns),
       call_to_action(ns = ns)
     )
   )
