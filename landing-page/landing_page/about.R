@@ -8,9 +8,15 @@ box::use(
 #' The images are assumed to be in the 'www/img/' dir.
 #' @param description List or character vector of same length as `image`.
 #' Descriptions to use under those images.
+#' @return [htmltools::tags$div()]
 #' @export
 create_about <- \(image = NULL, description = NULL) {
-  babies <- tags$div(
+  heading <- tags$h3(
+    class = "fw-bold text-center my-5",
+    "Take a Sneak Peek..."
+  )
+
+  imgs_and_descripts <- tags$div(
     class = "row row-gap-2 column-gap-2 mx-1",
     Map(
       f = \(img, desc) {
@@ -33,11 +39,8 @@ create_about <- \(image = NULL, description = NULL) {
 
   tags$div(
     class = "container",
-    tags$h3(
-      class = "fw-bold text-center my-5",
-      "Take a Sneak Peek..."
-    ),
-    babies
+    heading,
+    imgs_and_descripts
   )
 }
 
