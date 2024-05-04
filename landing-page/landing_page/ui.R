@@ -18,9 +18,16 @@ ui <- \(id) {
 
   tagList(
     nav(ns = ns),
-    hero(ns = ns),
-    about,
-    testimonies,
-    call_to_action(ns = ns)
+    tags$div(
+      `data-bs-spy` = "scroll",
+      `data-bs-target` = ns("page_nav"),
+      `data-bs-root-margin` = "0px 0px -10%",
+      `data-bs-smooth-scroll` = "true",
+      tabindex = "0",
+      hero(ns = ns),
+      about(ns = ns),
+      testimonies(ns = ns),
+      call_to_action(ns = ns)
+    )
   )
 }

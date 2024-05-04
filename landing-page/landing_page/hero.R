@@ -36,6 +36,7 @@ hero <- \(ns) {
   )
 
   tags$div(
+    id = ns("hero"),
     class = "bg-dark my-5 py-5",
     tags$div(
       class = "container my-3 my-md-5 py-md-5",

@@ -26,6 +26,7 @@ call_to_action <- \(ns) {
   )
 
   tags$div(
+    id = ns("call_to_action"),
     class = "row mx-1 py-1",
     tags$div(
       class = "col-12 my-5",

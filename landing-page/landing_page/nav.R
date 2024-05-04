@@ -9,22 +9,26 @@ box::use(
 #' @return [shiny::tags$div()]
 #' @export
 nav <- \(ns) {
-  nav_items <- lapply(
-    X = c("Home", "About", "Features"),
-    FUN = \(nav_item) {
-      class <- paste("nav-link text-white", if (nav_item == "Home") "active")
-      aria_current <- if (nav_item == "Home") "page" else NA
+  labels <- c("Home", "About", "Features")
+  hrefs <- paste0(
+    "#",
+    lapply(c("hero", "about", "testimonies"), ns)
+  )
 
+  nav_items <- Map(
+    f = \(label, href) {
       tags$li(
         class = "nav-item",
-        actionLink(
-          inputId = tolower(nav_item),
-          label = nav_item,
-          class = class,
-          `aria-current` = aria_current
+        tags$a(
+          id = ns(tolower(label)),
+          class = "nav-link text-white",
+          href = href,
+          label
         )
       )
-    }
+    },
+    labels,
+    hrefs
   )
 
   dropdown_items <- lapply(
@@ -50,6 +54,7 @@ nav <- \(ns) {
   dropdown_menu <- tags$ul(class = "dropdown-menu", dropdown_items)
 
   nav <- tags$nav(
+    id = ns("page_nav"),
     class = "navbar navbar-expand-lg bg-dark",
     tags$div(
       class = "container-fluid",
