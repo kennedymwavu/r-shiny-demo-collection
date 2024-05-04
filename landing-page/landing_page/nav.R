@@ -9,10 +9,10 @@ box::use(
 #' @return [shiny::tags$div()]
 #' @export
 nav <- \(ns) {
-  labels <- c("Home", "About", "Features")
+  labels <- c("Home", "About", "Merchandise")
   hrefs <- paste0(
     "#",
-    lapply(c("hero", "about", "testimonies"), ns)
+    lapply(c("hero", "about", "merchandise"), ns)
   )
 
   nav_items <- Map(
@@ -37,47 +37,6 @@ nav <- \(ns) {
     },
     labels,
     hrefs
-  )
-
-  dropdown_items <- lapply(
-    X = c("Hoodies", "Trousers", "Shoes"),
-    FUN = \(dropdown_item) {
-      tagList(
-        tags$li(
-          tags$button(
-            type = "button",
-            `data-bs-dismiss` = "offcanvas",
-            class = "dropdown-item",
-            tags$a(
-              id = ns(tolower(dropdown_item)),
-              class = "d-block",
-              href = "#",
-              dropdown_item
-            )
-          )
-        ),
-        if (dropdown_item == "Trousers") {
-          tags$li(
-            tags$hr(class = "dropdown-divider")
-          )
-        }
-      )
-    }
-  )
-
-  dropdown_menu <- tags$ul(class = "dropdown-menu", dropdown_items)
-
-  dropdown <- tags$li(
-    class = "nav-item dropdown",
-    tags$a(
-      class = "nav-link dropdown-toggle text-white",
-      href = "#",
-      role = "button",
-      `data-bs-toggle` = "dropdown",
-      `aria-expanded` = "false",
-      "Merchandise"
-    ),
-    dropdown_menu
   )
 
   nav <- tags$nav(
@@ -125,7 +84,6 @@ nav <- \(ns) {
           tags$ul(
             class = "navbar-nav justify-content-end align-items-md-center flex-grow-1 pe-3",
             nav_items,
-            dropdown,
             tags$li(
               class = "nav-item",
               actionButton(
