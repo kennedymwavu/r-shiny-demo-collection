@@ -19,11 +19,19 @@ nav <- \(ns) {
     f = \(label, href) {
       tags$li(
         class = "nav-item",
-        tags$a(
-          id = ns(tolower(label)),
-          class = "nav-link text-white",
-          href = href,
-          label
+        # ideally, this should only be the anchor element, NOT a button.
+        # but the `data-bs-dismiss` attribute currently only works with btns.
+        # reference: https://getbootstrap.com/docs/5.3/components/offcanvas/#dismiss
+        tags$button(
+          type = "button",
+          `data-bs-dismiss` = "offcanvas",
+          class = "bg-dark border-0",
+          tags$a(
+            id = ns(tolower(label)),
+            class = "nav-link text-white",
+            href = href,
+            label
+          )
         )
       )
     },
@@ -36,10 +44,16 @@ nav <- \(ns) {
     FUN = \(dropdown_item) {
       tagList(
         tags$li(
-          actionLink(
-            inputId = tolower(dropdown_item),
+          tags$button(
+            type = "button",
+            `data-bs-dismiss` = "offcanvas",
             class = "dropdown-item",
-            label = dropdown_item
+            tags$a(
+              id = ns(tolower(dropdown_item)),
+              class = "d-block",
+              href = "#",
+              dropdown_item
+            )
           )
         ),
         if (dropdown_item == "Trousers") {
@@ -52,6 +66,19 @@ nav <- \(ns) {
   )
 
   dropdown_menu <- tags$ul(class = "dropdown-menu", dropdown_items)
+
+  dropdown <- tags$li(
+    class = "nav-item dropdown",
+    tags$a(
+      class = "nav-link dropdown-toggle text-white",
+      href = "#",
+      role = "button",
+      `data-bs-toggle` = "dropdown",
+      `aria-expanded` = "false",
+      "Merchandise"
+    ),
+    dropdown_menu
+  )
 
   nav <- tags$nav(
     id = ns("page_nav"),
@@ -98,18 +125,7 @@ nav <- \(ns) {
           tags$ul(
             class = "navbar-nav justify-content-end align-items-md-center flex-grow-1 pe-3",
             nav_items,
-            tags$li(
-              class = "nav-item dropdown",
-              tags$a(
-                class = "nav-link dropdown-toggle text-white",
-                href = "#",
-                role = "button",
-                `data-bs-toggle` = "dropdown",
-                `aria-expanded` = "false",
-                "Merchandise"
-              ),
-              dropdown_menu
-            ),
+            dropdown,
             tags$li(
               class = "nav-item",
               actionButton(
