@@ -9,9 +9,6 @@ box::use(
 server <- \(id) {
   moduleServer(
     id = id,
-    module = \(input, output, session) {
-      ns <- session$ns
-      print("Here")
-    }
+    module = \(input, output, session) {}
   )
 }
