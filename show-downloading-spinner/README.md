@@ -10,5 +10,3 @@ works for all download btns in your app & shiny modules. even
 dynamically rendered ones.
 
 good UX.
-
-will write a blog post soon.
