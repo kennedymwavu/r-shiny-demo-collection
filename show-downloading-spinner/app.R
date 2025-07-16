@@ -52,15 +52,13 @@ ui <- page(
 )
 
 server <- \(input, output, session) {
-  ns <- session$ns
-
   output$dnld <- downloadHandler(
     filename = \() {
       "iris.csv"
     },
     content = \(file) {
       on.exit({
-        reset_download_button(id = "dnld")
+        reset_download_button(id = "dnld", session = session)
       })
       Sys.sleep(3) # <-- simulate large file
       write.csv(iris, file)
@@ -81,7 +79,7 @@ server <- \(input, output, session) {
     },
     content = \(file) {
       on.exit({
-        reset_download_button(id = "dnld2")
+        reset_download_button(id = "dnld2", session = session)
       })
       Sys.sleep(3)
       write.csv(iris, file)
